@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>销售统计</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+</head>
+<body>
+
+	<div style="width:70%;margin:20px auto">
+
+        <!--导航-->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link " href="/guard/">上架书籍</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/sales/">销售统计</a>
+            </li>
+        </ul>
+
+        <!--销量统计-->
+		<div style="margin-top:20px ;width:100%">
+			<table border="1px solid black" cellspacing="0px" cellpadding="2px" style="width:100%">
+				<tr>
+					<th style="width: 30%;">书名</th>
+					<th style="width: 20%;">isbn</th>
+					<th style="width: 20%;">当前库存(本)</th>
+					<th style="width: 15%;">销售量（本）</th>
+					<th style="width: 15%;">销售额（元）</th>
+				</tr>
+                {% for i in sales%}
+                <tr>
+                    <td ><font color="blue">{{i[0]}}</font></td>
+                    <td ><font color="blue">{{i[1]}}</font></td>
+                    <td ><font color="blue">{{i[2]}}</font></td>
+                    <td ><font color="blue">{{i[3]}}</font></td>
+                    <td ><font color="blue">{{i[4]}}</font></td>
+                </tr>
+                {% endfor %}
+			</table>
+            </div>
+
+	</div>
+
+</body>
+</html>

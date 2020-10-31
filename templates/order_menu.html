@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单管理</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+</head>
+<body>
+
+	<div style="width:70%;margin:50px auto">
+
+		<!--导航-->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link " href="/find_book_menu/">书籍搜索</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/shopping_menu/">购物车</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/order_menu/">订单管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cus_modifyinfo/">修改信息</a>
+            </li>
+        </ul>
+
+		<form action="/order_menu/" method="post">
+
+			<!--输入订单编号-->
+			<div style="padding-top:20px">
+					<div class="input-group mb-3" style="width:48%;float:left">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">输入订单编号</span>
+						</div>
+						<input type="text" name="orderid" class="form-control"  aria-describedby="basic-addon1">
+                	</div>
+					<div style="width:20%;float:left;text-align:right">
+						<button type="submit" value="确认收货"  class="btn btn-primary" style="width:50%">确认收货</button>
+					</div>
+					<!--提示信息-->
+					<div >
+						<span><font color="red">&nbsp&nbsp{{msg}}</font></span>
+					</div>
+				</div>
+
+			<!--订单信息-->
+			<div style="margin-top:40px">
+					<table border="1px solid black" cellspacing="0px" cellpadding="2px" style="width:100%">
+						<tr>
+							<th style="width: 34%;">订单编号</th>
+							<th style="width: 33%;">总价（元）</th>
+							<th style="width: 33%;">状态</th>
+						</tr>
+                		{% for i in orders%}
+						<tr>
+							{% if i[3]=='未确认' %}
+								<td ><font color="blue">{{i[0]}}</font></td>
+								<td ><font color="blue">{{i[2]}}</font></td>
+								<td ><font color="blue">{{i[3]}}</font></td>
+							{% else %}
+								<td >{{i[0]}}</td>
+								<td >{{i[2]}}</td>
+								<td >{{i[3]}}</td>
+							{% endif %}
+						</tr>
+                		{% endfor %}
+					</table>
+            	</div>
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--提交表单，发送请求，form做个整合，一起发给服务器-->
+    <!--post请求方式是隐式提交（显示提交：get,将提交的数据（参数）用？拼在url后面。
+    隐式提交，提交数据放在http的请求体还是请求头中）-->
+
+    <!--action为将数据发送到哪里，对应flask中的路由-->
+    <form action="/login" method="post">
+        <!--jason数据，以字典的形式发送给后台，name是key,user:值,pwd:值-->
+        用户名： <input type="text" name="user" id="user1">
+        <br>
+        密码： <input type="password" name="pwd" id="pwd1">
+        <br>
+        <input type="submit" value="登录">
+        {{msg}}
+    </form>
+
+</body>
+</html>

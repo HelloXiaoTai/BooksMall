@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>会员主页面</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+<!--    <style>-->
+<!--		#outer{-->
+<!--			border: 1px solid black;-->
+<!--			float: left;-->
+<!--		}-->
+<!--		#outer div{-->
+<!--			width:180px;-->
+<!--			float: left;-->
+<!--		}-->
+<!--	</style>-->
+</head>
+<body>
+    <div style="width:70%;margin:50px auto">
+        <!--导航-->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="/find_book_menu/">书籍搜索</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/shopping_menu/">购物车</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/order_menu/">订单管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cus_modifyinfo/">修改信息</a>
+            </li>
+        </ul>
+
+        <!--  搜索书籍      -->
+        <div style="margin:20px auto">
+        <form action="/find_book_menu/" method="post">
+
+            <!-- 选择关键字-->
+            <label>请选择关键字搜索：</label>
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="keywords" id="inlineRadio1" value="1">
+                  <label class="form-check-label" for="inlineRadio1">书名</label>
+            </div>
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="keywords" id="inlineRadio2" value="2">
+                  <label class="form-check-label" for="inlineRadio2">作者</label>
+            </div>
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="keywords" id="inlineRadio3" value="3" >
+                  <label class="form-check-label" for="inlineRadio3">价格</label>
+            </div>
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="keywords" id="inlineRadio4" value="4" >
+                  <label class="form-check-label" for="inlineRadio3">出版社</label>
+            </div>
+            <!-- 提示信息-->
+            <font color="red">{{msg1}}</font><br>
+
+            <!--输入关键词模糊查询-->
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">如果选择书名\作者\出版社，请输入您想搜索的内容：</label>
+                <div class="col-sm-9" style="margin-top:10px">
+                  <input type="text" name="texts" class="form-control" id="inputEmail3">
+                </div>
+            </div>
+
+            <!-- 输入最低最高价格-->
+            <div>
+                <div><label>如果选择价格区间，请输入：</label></div>
+                <div class="input-group mb-3" style="width:48%;float:left">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">最低价格（元）</span>
+                    </div>
+                    <input type="text" name="lprice" class="form-control"  aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3" style="width:48%;float:right">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2">最高价格（元）</span>
+                    </div>
+                    <input type="text" name="rprice" class="form-control"  aria-describedby="basic-addon1">
+                </div>
+            </div>
+
+            <!--    查询和排序按钮        -->
+            <div >
+                <div style="10px;width:50%;float:left;text-align:left">
+                    <button type="submit" value="查询" name="submits" class="btn btn-primary" style="width:80%">查询</button>
+                </div>
+                <div style="width:50%;float:right;text-align:right">
+                    <button type="submit" value="销量由高到低" name="submits" class="btn btn-primary" style="width:80%">销量由高到低</button>
+                </div>
+            </div>
+
+            <!--  查询结果   -->
+            <div style="margin-top:100px">
+			<table border="1px solid black" cellspacing="0px" cellpadding="2px">
+				<tr>
+					<th style="width: 20%;">书名</th>
+					<th style="width: 15%;">isbn</th>
+					<th style="width: 15%;">作者</th>
+					<th style="width: 10%;">价格（元）</th>
+					<th style="width: 20%;">出版社</th>
+					<th style="width: 10%;">销量（本）</th>
+					<th style="width: 10%;">当前库存（本）</th>
+				</tr>
+                {% for i in books%}
+                <tr>
+                    <td ><font color="blue">{{i[0]}}</font></td>
+                    <td ><font color="blue">{{i[1]}}</font></td>
+                    <td ><font color="blue">{{i[2]}}</font></td>
+                    <td ><font color="blue">{{i[3]}}</font></td>
+                    <td ><font color="blue">{{i[4]}}</font></td>
+                    <td ><font color="blue">{{i[5]}}</font></td>
+                    <td ><font color="blue">{{i[6]}}</font></td>
+                </tr>
+                {% endfor %}
+			</table>
+            </div>
+
+            <!-- 加入购物车 -->
+            <div style="height:50px;margin-top:40px">
+                <div>
+                    <label>加入购物车：</label>
+                    <font color="red">{{msg2}}</font>
+                </div>
+
+                <!--输入isbn-->
+                <div class="input-group mb-3" style="width:33%;float:left">
+                    <div class="input-group-prepend">
+                        <span  class="input-group-text" id="basic-addon3">isbn</span>
+                    </div>
+                    <input type="text" name="isbn" class="form-control"  aria-describedby="basic-addon1">
+                </div>
+
+                <!--输入购买数量-->
+                <div class="input-group mb-3" style="width:33%;float:left;margin-left:20px">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon4">购买数量</span>
+                    </div>
+                    <input type="text" name="quantity" class="form-control"  aria-describedby="basic-addon1">
+                </div>
+
+                <div style="width:20%;float:left;text-align:right">
+                    <button type="submit" value="加入购物车" name="submits" class="btn btn-primary" style="width:50%">确定</button>
+                </div>
+            </div>
+
+	    </form>
+        </div>
+    </div>
+</body>
+</html>

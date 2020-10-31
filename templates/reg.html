@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>会员注册</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+	<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+</head>
+<body>
+
+        <div style="width:50%;margin:50px auto">
+            <div style="float:left">
+                <img src="/img/gif/IMG_7397.GIF" style="height:530px;width:300px;border-radius:10px">
+            </div>
+
+            <!--注册信息-->
+            <div style="margin:10px auto;width:50%;float:right;">
+                <form action="/reg/" method="post">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">用户名*（非空）</label>
+                        <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码*（非空）</label>
+                        <input type="password" name="pwd" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">确认密码*（非空）</label>
+                        <input type="password" name="pwd_re" class="form-control" id="exampleInputPassword2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">手机号*（非空）</label>
+                        <input type="text" name="phone" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">收货地址</label>
+                        <input type="text" name="address" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label"><font color="red"> {{msg}}</font></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%">确定</button>
+                </form>
+            </div>
+        </div>
+
+
+
+<!--    <form action="/reg/" method="post">-->
+<!--        用户名*（非空）:<input type="text" name="username"><br>-->
+<!--        密码*（非空）：<input type="password" name="pwd"><br>-->
+<!--        确认密码*（非空）:<input type="password" name="pwd_re"><br>-->
+<!--        手机号*（非空）：<input type="text" name="phone" ><br>-->
+<!--        收货地址：<input type="text" name="address"><br>-->
+<!--        <input type="submit" value="确定"><br>-->
+<!--        {{msg}}-->
+<!--    </form>-->
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员登录</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+	<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+</head>
+<body>
+    <div style="width:50%;margin:50px auto">
+		<div style="float:left">
+			<img src="/img/gif/IMG_7394.GIF" style="height:300px;width:300px;border-radius:10px">
+		</div>
+
+		<!--登录信息-->
+		<div style="margin:10px auto;width:50%;float:right;">
+				<form action="/admin_login/" method="post">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Username</label>
+						<input type="text" name="admin_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your Username with anyone else.</small>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Password</label>
+						<input type="password" name="admin_pwd" class="form-control" id="exampleInputPassword1">
+					</div>
+					<div class="form-group form-check">
+						<label class="form-check-label"><font color="red"> {{msg}}</font></label>
+					</div>
+					<button type="submit" class="btn btn-primary" style="width:100%">登录</button>
+				</form>
+		</div>
+
+	</div>
+
+</body>
+</html>

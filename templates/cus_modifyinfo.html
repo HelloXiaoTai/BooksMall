@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>会员修改信息</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+</head>
+<body>
+
+    <div style="width:70%;margin:50px auto">
+
+        <!-- 导航-->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link " href="/find_book_menu/">书籍搜索</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/shopping_menu/">购物车</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/order_menu/">订单管理</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link active" href="/cus_modifyinfo/">修改信息</a>
+            </li>
+        </ul>
+
+        <!--修改信息-->
+        <div style="margin:50px auto">
+            <div style="float:left">
+                <img src="/img/gif/IMG_7395.GIF" style="height:360px;width:300px;border-radius:10px">
+            </div>
+		    <div style="margin:10px auto;width:50%;float:right;">
+				<form action="/cus_modifyinfo/" method="post">
+				<div class="form-group">
+					<label for="exampleInputEmail1">重新设置密码：</label>
+					<input type="password" name="pwd" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword2">确认密码：</label>
+					<input type="password" name="pwd_re" class="form-control" id="exampleInputPassword2">
+				</div>
+                <div class="form-group">
+					<label for="exampleInputPassword3">修改地址：</label>
+					<input type="text" name="address" class="form-control" id="exampleInputPassword3">
+				</div>
+				<div class="form-group form-check">
+                <!-- 提示信息-->
+					<label class="form-check-label"><font color="red">{{msg3}}{{msg1}}&nbsp&nbsp&nbsp&nbsp{{msg2}}</font></label>
+				</div>
+				<button type="submit" class="btn btn-primary" style="width:100%">确定</button>
+			    </form>
+		    </div>
+	    </div>
+
+    </div>
+</body>
+</html>

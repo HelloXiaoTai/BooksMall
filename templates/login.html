@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>会员登录页面</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+	<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+</head>
+<body>
+	<div style="width:50%;margin:50px auto">
+		<div style="float:left">
+			<img src="/img/gif/IMG_7398.GIF" style="height:300px;width:300px;border-radius:10px">
+		</div>
+
+		<!--登录信息-->
+		<div style="margin:10px auto;width:50%;float:right;">
+				<form action="/login/" method="post">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Username</label>
+					<input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+					<small id="emailHelp" class="form-text text-muted">We'll never share your Username with anyone else.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input type="password" name="pwd" class="form-control" id="exampleInputPassword1">
+				</div>
+				<div class="form-group form-check">
+					<a href="/reg/">注册</a>&nbsp&nbsp&nbsp&nbsp<a href="/find_pwd/">忘记密码</a>&nbsp&nbsp&nbsp&nbsp
+					<label class="form-check-label"><font color="red"> {{msg}}</font></label>
+				</div>
+				<button type="submit" class="btn btn-primary" style="width:100%">登录</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

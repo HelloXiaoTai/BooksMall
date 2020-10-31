@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello flask</title>
+</head>
+<body>
+    你好
+    <!--hello（名字随便取，两边一致即可）为flask传过来的变量-->
+    <a href="#">{{hello}}</a>
+    <hr/>
+    <font color="blue">{{lis}}</font>
+    <hr>
+    <!--for 循环  的开始   -->
+    {% for i in lis %}
+    我最喜欢的爱豆是:&nbsp&nbsp<font color="blue"> {{i}}</font>
+    <br>
+    <!--for 循环的结束 （开始中间写for的循环体）   -->
+    {% endfor %}
+</body>
+</html>

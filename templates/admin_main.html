@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主界面</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+</head>
+<body>
+    <div style="width:70%;margin:20px auto">
+
+        <!--导航-->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="/guard/">上架书籍</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sales/">销售统计</a>
+            </li>
+        </ul>
+
+
+        <!--上架信息输入-->
+        <div style="margin:20px auto">
+            <div style="float:left;width:300px;padding-top:10px">
+                <img src="/img/gif/IMG_7402.GIF" style="height:520px;width:300px;border-radius:10px">
+            </div>
+		    <div style="margin:0px auto;width:50%;float:right;">
+				<form action="/guard/" method="post">
+				<div class="form-group">
+					<label for="exampleInputEmail1">isbn*（非空）：</label>
+					<input type="text" name="isbn" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword2">书籍名*（非空）：</label>
+					<input ttype="text" name="bookname" class="form-control" id="exampleInputPassword2">
+				</div>
+                <div class="form-group">
+					<label for="exampleInputPassword3">作者*（非空）：</label>
+					<input type="text" name="author" class="form-control" id="exampleInputPassword3">
+				</div>
+                <div class="form-group">
+					<label for="exampleInputPassword4">单价*（非空）：</label>
+					<input type="text" name="price" class="form-control" id="exampleInputPassword4">
+				</div>
+                <div class="form-group">
+					<label for="exampleInputPassword5">出版社*（非空）：</label>
+					<input type="text" name="publish"  class="form-control" id="exampleInputPassword5">
+				</div>
+                <div class="form-group">
+					<label for="exampleInputPassword6">数量*（非空）：</label>
+					<input type="text" name="quantity" class="form-control" id="exampleInputPassword6">
+				</div>
+
+				<div class="form-group form-check">
+                    <!--提示信息-->
+					<label class="form-check-label"><font color="red">{{msg}}</font></label>
+				</div>
+				<button type="submit" value="确定" class="btn btn-primary" style="width:100%">确定</button>
+			    </form>
+            </div>
+		</div>
+    </div>
+
+</body>
+</html>
