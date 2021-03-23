@@ -227,6 +227,7 @@ def sale():
     return render_template("sales.html",sales=sales)
 
 if __name__=='__main__':
+    #数据库信息
     db = classes.DB(name='root', pwd='', host='localhost', db='book')
     booksystem = classes.Booksystem(db)
     bookadmin = classes.BookAdmin(db)
