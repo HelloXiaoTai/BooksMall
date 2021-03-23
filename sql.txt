@@ -1,0 +1,77 @@
+-- 创建会员表
+CREATE TABLE customer(
+	id INT PRIMARY KEY auto_increment,
+	customer VARCHAR(20) NOT NULL UNIQUE,
+	pwd VARCHAR(10) NOT NULL,
+	phone char(11) NOT NULL,
+	address VARCHAR(100)
+)ENGINE=INNODB CHARACTER SET=utf8 
+
+-- 创建管理员表
+CREATE TABLE users(
+	id INT PRIMARY KEY auto_increment,
+	`user` VARCHAR(20) NOT NULL UNIQUE,
+	pwd VARCHAR(10) NOT NULL
+)ENGINE=INNODB CHARACTER SET=utf8 
+
+-- 创建书籍详情表
+CREATE TABLE bookinfo(
+	id INT PRIMARY KEY auto_increment,
+	`name` VARCHAR(50)  NOT NULL,
+	isbn VARCHAR(20)  NOT NULL UNIQUE,
+	wirter VARCHAR(10)  NOT NULL,
+	price FLOAT NOT NULL,
+	publish VARCHAR(50) NOT NULL
+)ENGINE=INNODB CHARACTER SET=utf8 
+
+-- 创建购物车表
+CREATE TABLE shopping(
+	id INT PRIMARY KEY auto_increment,
+	bookinfoid INT,
+	customerid INT,
+	quantity INT NOT NULL,
+	FOREIGN KEY(bookinfoid) REFERENCES bookinfo(id),
+	FOREIGN KEY (customerid) REFERENCES customer(id)
+)ENGINE=INNODB CHARACTER SET=utf8
+
+
+-- 创建库存表
+CREATE TABLE inventory(
+	id INT PRIMARY KEY auto_increment,
+	bookinfoid INT,
+	quantity INT NOT NULL,
+	FOREIGN KEY(bookinfoid) REFERENCES bookinfo(id)
+)ENGINE=INNODB CHARACTER SET=utf8
+
+-- 创建销量统计表
+CREATE TABLE sales(
+	id INT PRIMARY KEY auto_increment,
+	bookinfoid INT,
+	quantity INT NOT NULL,
+	totalprice FLOAT NOT NULL,
+	FOREIGN KEY(bookinfoid) REFERENCES bookinfo(id)
+)ENGINE=INNODB CHARACTER SET=utf8
+
+
+-- 创建订单总表
+CREATE TABLE orders(
+	id INT PRIMARY KEY auto_increment,
+	customerid INT,
+	totalprice FLOAT,
+	`status` VARCHAR(10) NOT NULL,
+	FOREIGN KEY (customerid) REFERENCES customer(id)
+)ENGINE=INNODB CHARACTER SET=utf8
+
+-- 创建订单详细信息表
+CREATE TABLE ordersinfo(
+	id INT PRIMARY KEY auto_increment,
+  ordersid INT,
+	bookinfoid INT,
+	quantity INT NOT NULL,
+	price FLOAT NOT NULL,
+	FOREIGN KEY(ordersid) REFERENCES orders(id),
+	FOREIGN KEY(bookinfoid) REFERENCES bookinfo(id)
+) ENGINE=INNODB CHARACTER SET=utf8
+
+-- 初始管理员密码
+INSERT INTO users(`user`,pwd)VALUES('admin','123456')
